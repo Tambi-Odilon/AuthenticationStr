@@ -13,8 +13,7 @@ import javax.validation.constraints.Size;
 public class Client {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long idEtudiant;
-	private String cne;
+	private Long idClient;
 	private String cin;
 	@NotNull
 	@Size(min = 2, max = 30)
@@ -30,35 +29,6 @@ public class Client {
 
 	public Client() {
 		super();
-	}
-
-	// public Client(@NotNull String cNE, @NotNull String cin, @NotNull @Size(min
-	// = 2, max = 30) String nom,
-	// @NotNull @Size(min = 2, max = 40) String prenom, Date dateNaissance, String
-	// nationalite, String adresse,
-	// String tel, String email, Set<Inscription> inscriptions, Set<Passer> passers,
-	// Filiere filiere) {
-	// super();
-	// cne = cNE;
-	// this.cin = cin;
-	// this.nom = nom;
-	// this.prenom = prenom;
-	// this.dateNaissance = dateNaissance;
-	// this.nationalite = nationalite;
-	// this.adresse = adresse;
-	// this.tel = tel;
-	// this.email = email;
-	// this.inscriptions = inscriptions;
-	// this.passers = passers;
-	// this.filiere = filiere;
-	// }
-
-	public String getCne() {
-		return cne;
-	}
-
-	public void setCne(String cne) {
-		this.cne = cne;
 	}
 
 	public String getCin() {
@@ -101,12 +71,12 @@ public class Client {
 		this.email = email;
 	}
 
-	public Long getIdEtudiant() {
-		return idEtudiant;
+	public Long getIdClient() {
+		return idClient;
 	}
 
-	public void setIdEtudiant(Long idEtudiant) {
-		this.idEtudiant = idEtudiant;
+	public void setIdClient(Long idClient) {
+		this.idClient = idClient;
 	}
 
 	public String getNom() {

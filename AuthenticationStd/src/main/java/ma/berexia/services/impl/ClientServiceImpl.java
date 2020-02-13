@@ -28,8 +28,8 @@ public class ClientServiceImpl implements ClientService {
 	}
 
 	@Override
-	public void deleteEtudiantByIdEtudiant(long idEtudiant) {
-		Client client = clientRepository.findByIdEtudiant(idEtudiant);
+	public void deleteClientByIdClient(long idClient) {
+		Client client = clientRepository.findByIdClient(idClient);
 		clientRepository.delete(client);
 
 	}

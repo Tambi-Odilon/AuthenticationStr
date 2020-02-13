@@ -108,23 +108,6 @@ public class UserController {
 		params.put("roles", roles);
 
 		return params;
-
-		/*
-		 * 
-		 * 
-		 * user = securityContext.getAuthentication() ; listRoles = user.getRoles() ;
-		 * 
-		 * foms.findByName().getRoles ;
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 */
-
 	}
 
 }

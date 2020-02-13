@@ -9,5 +9,6 @@ public interface ClientService {
 
 	public List<Client> findAll();
 
-	public void deleteEtudiantByIdEtudiant(long idEtudiant);
+	public void deleteClientByIdClient(long idClient);
+
 }

@@ -3,6 +3,7 @@ package ma.berexia;
 import java.text.ParseException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -15,7 +16,7 @@ import ma.berexia.services.UserService;
 import ma.berexia.services.UsersRolesService;
 
 @SpringBootApplication
-public class AuthenticationStdApplication {
+public class AuthenticationStdApplication implements CommandLineRunner{
 
 	public static void main(String[] args) throws ParseException {
 		SpringApplication.run(AuthenticationStdApplication.class, args);
@@ -35,18 +36,19 @@ public class AuthenticationStdApplication {
 	@Autowired
 	private UsersRolesService usersRolesService;
 
-	//@Override
+	
+	@Override
 	public void run(String... args) throws Exception {
-		
 		if (usersService.findAllUsers().isEmpty() && usersService.findUserByUsername("admin") == null) {
-			// Ajout user par défaut
+			System.out.println("############################# am here ");
+			// Add default user
 			User u = new User();
 			u.setUsername("admin");
 			u.setPassword("admin");
 			u.setActivated(true);
 			usersService.saveUser(u);
 
-			// Ajout Role par défaut
+			// Add default role
 			Role r0 = new Role();
 			Role r1 = new Role();
 			Role r2 = new Role();
@@ -60,10 +62,10 @@ public class AuthenticationStdApplication {
 			r2.setDescription("Reception");
 			roleService.saveRole(r2);
 
-			// affecter role a user par defaut
+			// affect role to user
 			usersRolesService.addRoleToUser("admin", "ADMIN");
 		}
-
+		
 	}
 
 }

@@ -29,43 +29,34 @@ public class ClientController {
 	@Autowired
 	private ClientRepository clientRepository;
 
-	@GetMapping("/etudiants")
-	public Collection<Client> getAllEtudiants() {
+	@GetMapping("/clients")
+	public Collection<Client> getAllClients() {
 		return clientService.findAll();
 	}
 
-	@PostMapping("/etudiants")
-	public Client saveEtudiant(@RequestBody Client e) {
+	@PostMapping("/clients")
+	public Client saveClient(@RequestBody Client e) {
 		return clientService.save(e);
 	}
 
 	// @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
 
-	@GetMapping("/etudiant/{id}")
+	@GetMapping("/client/{id}")
 	ResponseEntity<?> getGroup(@PathVariable Long id) {
 		Optional<Client> client = clientRepository.findById(id);
 		return client.map(response -> ResponseEntity.ok().body(response))
 				.orElse(new ResponseEntity<>(HttpStatus.NOT_FOUND));
 	}
 
-	// @PostMapping("/etudiants")
-	// ResponseEntity<Client> createEtudiant(@Valid @RequestBody Client
-	// etudiant) throws URISyntaxException {
-	// // log.info("Request to create group: {}", group);
-	// Client result = clientRepository.save(etudiant);
-	// return ResponseEntity.created(new URI("/etudiants" +
-	// result.getIdEtudiant())).body(result);
-	// }
-
-	@PutMapping("/etudiant/{id}")
-	ResponseEntity<Client> updateEtudiant(@Valid @RequestBody Client client) {
+	@PutMapping("/client/{id}")
+	ResponseEntity<Client> updateClient(@Valid @RequestBody Client client) {
 		// log.info("Request to update group: {}", group);
 		Client result = clientRepository.save(client);
 		return ResponseEntity.ok().body(result);
 	}
 
-	@DeleteMapping("/etudiant/{id}")
-	public ResponseEntity<?> deleteEtudiant(@PathVariable Long id) {
+	@DeleteMapping("/client/{id}")
+	public ResponseEntity<?> deleteClient(@PathVariable Long id) {
 		// log.info("Request to delete group: {}", id);
 		clientRepository.deleteById(id);
 		return ResponseEntity.ok().build();

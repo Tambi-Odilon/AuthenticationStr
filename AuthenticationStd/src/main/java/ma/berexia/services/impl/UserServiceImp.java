@@ -29,14 +29,8 @@ public class UserServiceImp implements UserService {
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 
 	@Override
-	public User saveUser(User user) {
-		// System.out
-		// .println("111111111*********************************************************************************");
-		String hashPassword = bCryptPasswordEncoder.encode(user.getPassword());
+	public User saveUser(User user) {String hashPassword = bCryptPasswordEncoder.encode(user.getPassword());
 		user.setPassword(hashPassword);
-		// usersRolesService.addRoleToUser(user.getUsername(), "PROF");
-		// System.out
-		// .println("2222222222*********************************************************************************");
 		return userRepository.save(user);
 	}
 
