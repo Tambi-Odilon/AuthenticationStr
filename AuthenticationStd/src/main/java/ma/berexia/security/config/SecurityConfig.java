@@ -58,7 +58,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests().antMatchers("/register/**").hasAuthority("ADMIN");
 		http.authorizeRequests().anyRequest().authenticated();
 		
-		//A décommenter le deux ligne suivant pour utilisé le module JWT
+		//A décommenter les deux lignes suivantes pour utiliser le module JWT
 		
 //		http.addFilter(new JWTAuthenticationFilter(authenticationManager()));
 //		http.addFilterBefore(new JWTAuthorizationFilter(), UsernamePasswordAuthenticationFilter.class);
